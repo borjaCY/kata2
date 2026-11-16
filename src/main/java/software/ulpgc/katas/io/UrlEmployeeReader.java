@@ -46,7 +46,7 @@ public class UrlEmployeeReader implements EmployeeReader {
     }
 
     private Employee loadFrom(String[] fields) {
-        return new Employee(fields[0], statusOf(fields[0]));
+        return new Employee(fields[0], statusOf(fields[6]));
     }
 
     private MaritalStatus statusOf(String field) { return field.isEmpty() ? null : MaritalStatus.valueOf(field); }

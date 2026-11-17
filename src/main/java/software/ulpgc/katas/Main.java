@@ -18,6 +18,11 @@ import java.util.stream.Collectors;
 public class Main {
     static void main() throws IOException {
         URL url = new File("employees.tsv").toURI().toURL();
+        EmployeeReader reader = new UrlEmployeeReader(url);
+        List<Employee> employees = reader.readEmployees();
 
+        Map<MaritalStatus, Long> resultado = employees.stream().filter(employee -> employee.maritalStatus() != null)
+                .collect(Collectors.groupingBy(Employee::maritalStatus, Collectors.counting()));
+        System.out.println("Resultado: " + resultado + "\n");
     }
 }

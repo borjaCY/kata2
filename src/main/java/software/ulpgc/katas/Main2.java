@@ -7,7 +7,9 @@ public class Main2 {
     static void main() throws IOException {
         URL url = new URL("https://raw.githubusercontent.com/sachin365123/CSV-files-for-Data-Science-and-Machine-Learning/refs/heads/main/Employee%20Dataset%20-%20TSV.txt");
         File file = new File("employees.tsv");
-
+        try(InputStream isr = url.openStream(); OutputStream os = new FileOutputStream(file)) {
+            os.write(isr.readAllBytes());
+        }
         System.out.println("Archivo descargado correctamente");
 
     }

@@ -14,7 +14,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+/*
+    ENTRADA DESDE FICHERO LOCAL Y SALIDA POR CONSOLA
 
+ */
 public class Main {
     static void main() throws IOException {
         URL url = new File("employees.tsv").toURI().toURL();
